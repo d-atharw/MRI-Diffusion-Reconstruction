@@ -1,68 +1,113 @@
 # MRI Diffusion Reconstruction
 
-A Generative AI project focused on Brain MRI image reconstruction using Diffusion Models and Deep Learning techniques.
+> Deep Learning-based MRI Reconstruction using Denoising Diffusion Probabilistic Models (DDPM)
 
-## Project Overview
-
-This project implements a DDPM-based (Denoising Diffusion Probabilistic Model) pipeline for MRI image generation and reconstruction using Brain MRI datasets.
-
-The workflow includes:
-
-- MRI preprocessing from `.nii` medical volumes
-- 2D slice extraction
-- Conditional and unconditional diffusion model training
-- MRI reconstruction and denoising
-- Quantitative evaluation using SSIM, PSNR, and MSE metrics
-
-The project was developed as part of a Generative AI internship in Applied Deep Learning Applications at MNNIT Allahabad.
+![Python](https://img.shields.io/badge/Python-3.10-blue)
+![PyTorch](https://img.shields.io/badge/PyTorch-Deep%20Learning-red)
+![Medical Imaging](https://img.shields.io/badge/Medical-Imaging-green)
+![License](https://img.shields.io/badge/License-MIT-yellow)
 
 ---
 
-# Objectives
+## Overview
 
-- Learn and implement diffusion models in medical imaging
-- Reconstruct cleaner MRI scans from corrupted inputs
-- Experiment with conditional diffusion pipelines
-- Evaluate reconstruction quality quantitatively
+Magnetic Resonance Imaging (MRI) is one of the most widely used non-invasive imaging techniques for medical diagnosis. However, patient motion during scanning often introduces artifacts that degrade image quality and affect clinical interpretation.
 
----
-
-# Dataset
-
-The dataset consists of Brain MRI volumes in `.nii` format.
-
-Preprocessing pipeline:
-- Extraction of anatomical MRI slices
-- Slice normalization
-- Conversion to grayscale PNG images
-- Filtering low-information slices
+This project investigates the use of **Denoising Diffusion Probabilistic Models (DDPM)** for reconstructing high-quality MRI images from motion-corrupted scans. The work was carried out as part of my **Summer Research Internship at Motilal Nehru National Institute of Technology (MNNIT), Prayagraj** under the project *Generative AI in Medical Image Analysis*.
 
 ---
 
-# Model Architecture
+## Objectives
 
-The project uses:
+- Reconstruct motion-corrupted MRI images using diffusion models.
+- Learn the distribution of clean MRI scans through iterative denoising.
+- Improve image quality while preserving anatomical structures.
+- Evaluate reconstruction performance using standard image quality metrics.
 
-- DDPM (Denoising Diffusion Probabilistic Model)
-- U-Net based architecture
+---
+
+## Methodology
+
+The reconstruction pipeline consists of:
+
+1. MRI Dataset Preparation
+2. Motion Artifact Simulation
+3. DDPM Training
+4. Reverse Diffusion Sampling
+5. Image Reconstruction
+6. Performance Evaluation
+
+---
+
+## Technologies Used
+
+- Python
 - PyTorch
-- HuggingFace Diffusers
+- NumPy
+- OpenCV
+- Matplotlib
+- Google Colab / Kaggle
 
 ---
 
-# Pipeline
+## Results
 
-```text
-MRI Volumes (.nii)
-        ↓
-Slice Extraction
-        ↓
-Preprocessing & Normalization
-        ↓
-Corrupted MRI Generation
-        ↓
-Conditional Diffusion Training
-        ↓
-MRI Reconstruction
-        ↓
-Evaluation Metrics
+The trained model demonstrated successful reconstruction of motion-corrupted MRI images.
+
+### Best Performance
+
+| Metric | Value |
+|---------|------:|
+| MSE | **0.0011** |
+| SSIM | **0.5732** |
+| PSNR | **29.69 dB** |
+
+---
+
+## Repository Structure
+
+```
+MRI-Diffusion-Reconstruction/
+│
+├── notebooks/
+├── assets/
+├── results/
+├── README.md
+├── requirements.txt
+├── LICENSE
+└── .gitignore
+```
+
+---
+
+## Installation
+
+```bash
+git clone https://github.com/d-atharw/MRI-Diffusion-Reconstruction.git
+
+cd MRI-Diffusion-Reconstruction
+
+pip install -r requirements.txt
+```
+
+---
+
+## Future Improvements
+
+- Train on larger MRI datasets.
+- Improve reconstruction fidelity.
+- Explore Latent Diffusion Models.
+- Reduce inference time.
+- Extend to 3D volumetric MRI reconstruction.
+
+---
+
+## Acknowledgements
+
+This project was completed during my Summer Research Internship at **Motilal Nehru National Institute of Technology (MNNIT), Prayagraj**, under the guidance of my research supervisor.
+
+---
+
+## License
+
+This project is licensed under the MIT License.
